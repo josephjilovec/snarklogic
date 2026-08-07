@@ -1,0 +1,7 @@
+import type { Metadata } from 'next'
+import { PageHero } from '@/components/PageHero'
+import { SectionHeading } from '@/components/SectionHeading'
+import { RoiLab } from '@/components/RoiLab'
+export const metadata: Metadata = { title:'Enterprise' }
+const controls=[['BRAND CONSTITUTION','Codified voice, forbidden zones, claim standards, escalation rules and approval requirements.'],['ROLE-BASED APPROVALS','Creative, legal, finance and channel owners see the decisions relevant to them.'],['AUDITABLE LINEAGE','Concept → script → asset → edit → placement → observed result.'],['EXPERIMENT GOVERNANCE','Standard naming, hypotheses, budgets and success criteria across teams and agencies.']]
+export default function Enterprise(){return <><PageHero kicker="ENTERPRISE" title="Give creative teams more freedom by making the guardrails visible." copy="Enterprise SnarkLogic is designed for organizations that need speed without losing approvals, rights context, financial discipline, or institutional memory." cta="Talk enterprise"/><section className="section-pad"><SectionHeading eyebrow="GOVERNANCE" title="Controls that accelerate rather than suffocate."/><div className="feature-cards four">{controls.map(([a,b],i)=><article key={a}><b>0{i+1}</b><h3>{a}</h3><p>{b}</p></article>)}</div></section><section className="paper-grid section-pad"><SectionHeading eyebrow="UNIT ECONOMICS" title="A common language for creative and finance."/><RoiLab/></section></>}

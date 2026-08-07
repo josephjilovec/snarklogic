@@ -1,0 +1,5 @@
+import type { Metadata } from 'next'
+import { PageHero } from '@/components/PageHero'
+import { ContactForm } from '@/components/ContactForm'
+export const metadata: Metadata = { title:'Contact' }
+export default function Contact(){return <><PageHero kicker="START A BRIEF" title="Show us the product. Show us the boring ads." copy="The prototype form posts to a Next.js server route and validates the submission. Connect that route to your email, CRM, database, or workflow provider when you are ready for production."/><section className="contact-section section-pad"><div><h2>What makes a useful first brief?</h2><p>Product truth, audience, current offer, media channels, rough spend, what has already been tested, non-negotiable brand boundaries, and the thing your competitors all say.</p><div className="contact-note"><b>NO API KEYS REQUIRED</b><p>This build is deployable as-is. External services are optional integration points, not hidden dependencies.</p></div></div><ContactForm/></section></>}

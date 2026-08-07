@@ -1,0 +1,6 @@
+import type { Metadata } from 'next'
+import { PageHero } from '@/components/PageHero'
+import { SectionHeading } from '@/components/SectionHeading'
+import { brand } from '@/lib/brand'
+export const metadata: Metadata = { title:'About' }
+export default function About(){return <><PageHero kicker="ABOUT SNARKLOGIC" title="Snark is the edge. Logic is the adult supervision." copy={brand.positioning}/><section className="section-pad"><SectionHeading eyebrow="VOICE" title="A brand that knows exactly how annoying advertising can be."/><div className="voice-list">{brand.voice.map((v,i)=><div key={v}><b>0{i+1}</b><h3>{v}</h3></div>)}</div></section><section className="dark-section section-pad"><SectionHeading eyebrow="VISUAL SYSTEM" title="Editorial confidence + controlled signal noise." copy="Obsidian and warm paper create an editorial base. Signal lime is reserved for system intelligence and positive movement; coral marks creative heat and caution; violet adds synthetic depth. The design deliberately avoids generic AI gradients and robot imagery."/><div className="swatches">{Object.entries(brand.visual).map(([n,c])=><div key={n} style={{background:c,color:['#0B0B0C','#242428'].includes(c)?'#F4F0E7':'#0B0B0C'}}><b>{n}</b><span>{c}</span></div>)}</div></section></>}
