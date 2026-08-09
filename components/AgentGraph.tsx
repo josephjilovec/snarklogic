@@ -4,16 +4,24 @@ import { useState } from 'react'
 import { pods } from '@/lib/data'
 
 export function AgentGraph() {
-  const [active, setActive] = useState(pods[0].id)
-  const pod = pods.find(p => p.id === active) || pods[0]
-  return <div className="agent-graph">
-    <div className="agent-ring" aria-label="Interactive agent pod selector">
-      <div className="core"><small>SHARED</small><b>DECISION<br/>GRAPH</b><span>evidence ↔ dissent</span></div>
-      {pods.map((p,i)=><button key={p.id} className={`node node-${i+1} ${active===p.id?'active':''}`} onClick={()=>setActive(p.id)}><span>{p.index}</span>{p.name}</button>)}
+  const [active, setActive] = useState(0)
+  const pod = pods[active] ?? pods[0]
+
+  return (
+    <div className="pod-grid expanded">
+      {pods.map((item, index) => (
+        <article key={item.index}>
+          <button className="button dark" type="button" onClick={() => setActive(index)} aria-pressed={active === index}>
+            {item.index} / {item.name}
+          </button>
+          {active === index && <>
+            <span>{pod.signal}</span>
+            <h3>{pod.name}</h3>
+            <p>{pod.line}</p>
+            {pod.agents.map(([name, detail]) => <div className="agent-line" key={name}><b>{name}</b><p>{detail}</p></div>)}
+          </>}
+        </article>
+      ))}
     </div>
-    <div className="agent-detail">
-      <span>{pod.metric}</span><h3>{pod.name}</h3><p>{pod.role}</p>
-      {pod.agents.map(a=><div className="agent-row" key={a.name}><b>{a.name}</b><p>{a.detail}</p></div>)}
-    </div>
-  </div>
+  )
 }
