@@ -1,10 +1,20 @@
 export const brand = {
-  name: 'SnarkLogic',
-  domain: 'snarklogic.com',
-  tagline: 'Make them laugh. Make the numbers move.',
-  positioning: 'A comedic advertising operating system that combines creative taste, behavioral intelligence, risk discipline, and performance feedback.',
-  voice: ['Dry, not try-hard', 'Specific, not corporate', 'Provocative, not careless', 'Data-literate, not robotic', 'Self-aware, never self-important'],
+  name: 'Snark Logic',
+  tagline: 'Comedy systems for feeds and boardrooms.',
+  positioning: 'A two-engine MediaTech company: a public algorithmic writers’ room for creators and a private communications firewall for enterprises.',
+  principles: [
+    'Funny is a mechanism, not a personality setting.',
+    'Structured disagreement beats one confident answer.',
+    'Retention and risk can be evaluated without turning creativity into a spreadsheet.',
+    'Human approval stays in the loop when the downside is real.',
+  ],
   visual: {
-    ink: '#0B0B0C', paper: '#F4F0E7', lime: '#C8FF3D', coral: '#FF655C', violet: '#7765FF', graphite: '#242428'
-  }
-}
+    void: '#090909',
+    paper: '#F3EFE6',
+    creator: '#FF5D2E',
+    acid: '#E8FF6A',
+    enterprise: '#8EDCFF',
+    lavender: '#B6A9FF',
+    graphite: '#202023',
+  },
+} as const
