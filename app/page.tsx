@@ -1,74 +1,67 @@
 import Link from 'next/link'
-import { MetricStrip } from '@/components/MetricStrip'
-import { SectionHeading } from '@/components/SectionHeading'
-import { SnarkDial } from '@/components/SnarkDial'
-import { AgentGraph } from '@/components/AgentGraph'
-import { BriefSimulator } from '@/components/BriefSimulator'
-import { RoiLab } from '@/components/RoiLab'
-import { workflow, roadmap } from '@/lib/data'
+import { SignalWorkbench } from '@/components/SignalWorkbench'
+import { businessModel, loop, pods } from '@/lib/data'
 
 export default function Home() {
   return <>
-    <section className="hero">
-      <div className="hero-copy">
-        <div className="eyebrow"><span>AI ADVERTISING / COMEDIC INTELLIGENCE / PERFORMANCE SYSTEMS</span><b>EST. NOW</b></div>
-        <h1>Make them <em>laugh.</em><br/>Make the numbers <strong>move.</strong></h1>
-        <p className="hero-lede">SnarkLogic is the operating system for advertising that refuses to sound like advertising: comedic strategy, structured agent debate, production workflows, risk controls, and performance feedback in one loop.</p>
-        <div className="hero-actions"><Link className="button solid" href="/platform">EXPLORE THE SYSTEM →</Link><Link className="button ghost" href="/contact">BRING A BRIEF</Link></div>
+    <section className="hero-v2">
+      <div className="hero-meta"><span>MEDIATEK / COMEDY R&D / BRAND DEFENSE</span><span>PUBLIC + PRIVATE</span></div>
+      <div className="hero-title-wrap">
+        <h1>Comedy systems for <em>feeds</em> and <strong>boardrooms.</strong></h1>
+        <p>Snark Logic is one disagreement engine with two very different jobs: help creators build harder-to-skip digital content, and help companies make human communication without turning tone experiments into a PR incident.</p>
+        <div className="hero-actions"><Link className="button creator-button" href="/creators">Enter the writers’ room →</Link><Link className="button enterprise-button" href="/enterprise">See the enterprise firewall →</Link></div>
       </div>
-      <div className="hero-side">
-        <div className="ticker"><span>ATTENTION ≠ POLISH</span><span>TASTE + DATA + DISSENT</span><span>FUNNY, NOT RECKLESS</span></div>
-        <SnarkDial />
-      </div>
-    </section>
-    <MetricStrip />
-
-    <section className="manifesto section-pad">
-      <SectionHeading eyebrow="THE CONTRARIAN THESIS" title="Advertising got optimized until it became ignorable." copy="Generative tools made content abundant. That makes taste, differentiation, governance, and learning velocity more valuable—not less."/>
-      <div className="manifesto-grid">
-        <div className="huge-quote">“SAFE”<br/><span>IS NOT THE SAME AS</span><br/>MEMORABLE.</div>
-        <div className="principles">
-          <div><b>01</b><h3>Comedy is a strategy, not decoration.</h3><p>The joke must sharpen the product truth, not distract from it.</p></div>
-          <div><b>02</b><h3>Agents should disagree on purpose.</h3><p>Creative, behavioral, finance, and risk perspectives are designed to challenge one another.</p></div>
-          <div><b>03</b><h3>Performance closes the loop.</h3><p>Every angle becomes structured evidence for the next round of creative decisions.</p></div>
-        </div>
+      <div className="dual-band" aria-label="Snark Logic dual-engine model">
+        <div className="creator-band"><span>01 / PUBLIC</span><b>ALGORITHMIC WRITERS’ ROOM</b><p>Hooks. Timing. Humor tolerance. Narrative subversion. Retention.</p></div>
+        <div className="enterprise-band"><span>02 / PRIVATE</span><b>COMMUNICATIONS FIREWALL</b><p>Tone. Cringe. Backlash. Context. Brand-risk review.</p></div>
       </div>
     </section>
 
-    <section className="dark-section section-pad">
-      <SectionHeading eyebrow="MULTI-AGENT OPERATING MODEL" title="Four pods. One shared decision graph." copy="The point is not to pretend software replaces experts. The point is to encode expert perspectives so important tradeoffs become explicit, reviewable, and reusable."/>
-      <AgentGraph />
-      <div className="center"><Link className="button light" href="/agents">MEET THE AGENT SYSTEM →</Link></div>
+    <section className="workbench-section"><SignalWorkbench /></section>
+
+    <section className="section split-thesis">
+      <div className="section-kicker">THE PIVOT</div>
+      <div><h2>Stop optimizing media.<br/>Start optimizing the idea.</h2></div>
+      <div><p>Snark Logic is no longer an advertising spend or CPA optimization platform. The product is now focused on the thing upstream of distribution: what gets said, when the turn lands, how much edge an audience tolerates, and where a message becomes funny, stale, robotic, confusing, or risky.</p></div>
     </section>
 
-    <section className="section-pad workflow-section">
-      <SectionHeading eyebrow="THE CLOSED LOOP" title="From brief to learning system." copy="A campaign is not a folder of assets. It is a chain of decisions, rights, hypotheses, experiments, and observed outcomes."/>
-      <div className="workflow">
-        {workflow.map(([n,t,d]) => <div className="workflow-row" key={n}><b>{n}</b><h3>{t}</h3><p>{d}</p><span>→</span></div>)}
-      </div>
+    <section className="engine-pair">
+      <article className="creator-panel">
+        <span>PUBLIC ENGINE / MEDIA</span>
+        <h2>The feed is the focus group.</h2>
+        <p>An algorithmic writers’ room for digital creators, meme pages, content studios, and entertainment brands that need premise velocity without becoming generic.</p>
+        <ul><li>High-velocity hook families</li><li>Timing and payoff analysis</li><li>Humor tolerance mapping</li><li>Narrative subversion</li><li>Retention-oriented creative notes</li></ul>
+        <Link href="/creators">Explore Creator R&D →</Link>
+      </article>
+      <article className="enterprise-panel">
+        <span>PRIVATE ENGINE / ENTERPRISE</span>
+        <h2>Make it human. Keep the blast radius small.</h2>
+        <p>A private corporate tone-and-satire firewall for teams that want less robotic communication without letting an “intern with a flamethrower” define the brand voice.</p>
+        <ul><li>Tone translation</li><li>Cringe and backlash scans</li><li>Satire / wit tolerance controls</li><li>Context-collapse stress tests</li><li>Human approval gates</li></ul>
+        <Link href="/enterprise">Explore Enterprise OS →</Link>
+      </article>
     </section>
 
-    <section className="section-pad split-feature">
-      <div><SectionHeading eyebrow="INTERACTIVE PROTOTYPE" title="Give the orchestrator something to chew on." copy="This demo calls a real Next.js server route. It is intentionally deterministic now, so the prototype works with zero API keys; the route is ready to be swapped for a production model/orchestration layer later."/></div>
-      <BriefSimulator />
+    <section className="section engine-section">
+      <div className="section-head"><span>ONE ENGINE / TWO SURFACES</span><h2>Structured disagreement is the shared infrastructure.</h2><p>The public and private products use the same four-lens architecture. What changes is the objective, data boundary, output, and risk threshold.</p></div>
+      <div className="pod-grid">{pods.map(p => <article key={p.index}><span>{p.index} / {p.signal}</span><h3>{p.name}</h3><p>{p.line}</p><div>{p.agents.map(a => <small key={a[0]}><b>{a[0]}</b>{a[1]}</small>)}</div></article>)}</div>
+      <div className="section-link"><Link href="/engine">Open the engine architecture →</Link></div>
     </section>
 
-    <section className="paper-grid section-pad">
-      <SectionHeading eyebrow="CAPITAL ALLOCATION" title="Creative is a portfolio of hypotheses." copy="The finance pod frames angle-level testing in the language operators actually care about: spend, acquisition economics, marginal efficiency, and confidence."/>
-      <RoiLab />
+    <section className="loop-section section">
+      <div className="section-head"><span>THE DISAGREEMENT LOOP</span><h2>Generate. Challenge. Escalate. Remember.</h2></div>
+      <div className="loop-list">{loop.map(([n,t,d]) => <div key={n}><b>{n}</b><h3>{t}</h3><p>{d}</p><i>↘</i></div>)}</div>
     </section>
 
-    <section className="roadmap-section section-pad">
-      <SectionHeading eyebrow="15-YEAR TRAJECTORY" title="Build the creative OS first. Earn the right to automate more."/>
-      <div className="roadmap">
-        {roadmap.map(([year,title,copy],i)=><article key={year}><span>{year}</span><i>{String(i+1).padStart(2,'0')}</i><h3>{title}</h3><p>{copy}</p></article>)}
-      </div>
+    <section className="business-section section">
+      <div className="section-head"><span>BUSINESS MODEL</span><h2>Self-serve creativity outside. Private risk infrastructure inside.</h2><p>The two sides share technology but do not need to share customer data, deployment boundaries, or go-to-market motion.</p></div>
+      <div className="business-table">{businessModel.map(([lane,model,copy,status]) => <article key={lane}><span>{lane}</span><h3>{model}</h3><p>{copy}</p><b>{status}</b></article>)}</div>
     </section>
 
-    <section className="final-cta">
-      <span>SNARK WITHOUT LOGIC IS JUST A LIABILITY.</span>
-      <h2>Logic without snark<br/>is an ad you already skipped.</h2>
-      <Link className="button solid" href="/contact">START WITH A BRIEF →</Link>
+    <section className="final-cta-v2">
+      <span>SNARK WITHOUT LOGIC IS A LIABILITY.</span>
+      <h2>Logic without snark<br/>sounds like everybody else.</h2>
+      <div><Link className="button creator-button" href="/lab">Try the product surface →</Link><Link className="button dark-outline" href="/contact">Talk to Snark Logic →</Link></div>
     </section>
   </>
 }
