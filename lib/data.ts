@@ -1,68 +1,99 @@
-export type Pod = {
-  id: string
-  index: string
-  name: string
-  role: string
-  agents: { name: string; detail: string }[]
-  metric: string
-}
+export const creatorCapabilities = [
+  ['01', 'Hook Forge', 'Generate families of openings around tension, specificity, misdirection, reversal, and pattern interruption—not random one-liners.'],
+  ['02', 'Timing Lab', 'Map when the premise reveals itself, where the turn lands, and how quickly the viewer understands why they should keep watching.'],
+  ['03', 'Humor Tolerance Map', 'Model audience resistance, irony tolerance, taboo boundaries, fatigue, and how far a creator can push without losing the room.'],
+  ['04', 'Narrative Subversion', 'Identify the expected category story, then bend, reverse, undercut, or escalate it while preserving a clear point.'],
+  ['05', 'Retention Notes', 'Score openings and beat structures against clarity, surprise, payoff distance, rewatch potential, and likely drop-off moments.'],
+  ['06', 'Pattern Library', 'Turn strong mechanisms into reusable creative patterns without flattening every creator into the same house voice.'],
+] as const
 
-export const pods: Pod[] = [
+export const enterpriseCapabilities = [
+  ['01', 'Tone Translation', 'Rewrite stiff corporate language into human language while preserving the factual payload and approval boundaries.'],
+  ['02', 'Cringe Scan', 'Flag inflated phrasing, fake warmth, empty jargon, accidental condescension, and lines that sound like a committee wrote them.'],
+  ['03', 'Backlash Map', 'Stress-test plausible hostile readings, context collapse, ambiguity, screenshot risk, and audience-specific failure modes.'],
+  ['04', 'Satire Dial', 'Explore how much wit, irony, or self-awareness a message can carry before the tone stops fitting the organization or moment.'],
+  ['05', 'Claim & Context Gate', 'Separate stylistic experimentation from factual, legal, policy, disclosure, or regulated claims that require human review.'],
+  ['06', 'Approval Memory', 'Preserve what changed, why it changed, who objected, and which communication rules should survive into the next draft.'],
+] as const
+
+export const pods = [
   {
-    id: 'behavioral', index: '01', name: 'Behavioral Intelligence', role: 'Attention without the cringe.', metric: 'Signal: audience resistance',
+    index: '01',
+    name: 'Behavioral Intelligence',
+    signal: 'Audience resistance',
+    line: 'Read the room before trying to own it.',
     agents: [
-      { name: 'Behavioral Analyst', detail: 'Maps skepticism, ad fatigue, status anxiety, and humor tolerance into usable creative constraints.' },
-      { name: 'Cultural Signal Scout', detail: 'Tracks fast-moving language, formats, and meme structures before they become stale.' },
+      ['Behavioral Analyst', 'Maps skepticism, status dynamics, attention friction, audience defensiveness, and humor tolerance.'],
+      ['Retention Analyst', 'Looks at opening clarity, payoff distance, beat density, novelty, and likely attention drop-off points.'],
     ],
   },
   {
-    id: 'creative', index: '02', name: 'Creative & Talent', role: 'Make the joke earn its media spend.', metric: 'Signal: concept velocity',
+    index: '02',
+    name: 'Cultural Signal',
+    signal: 'Timing + context',
+    line: 'The joke has a half-life.',
     agents: [
-      { name: 'Comedic Director', detail: 'Builds concepts using misdirection, escalation, contrast, specificity, and controlled absurdity.' },
-      { name: 'Talent & Rights Agent', detail: 'Keeps creator voice, licensing boundaries, approvals, and usage rights visible throughout production.' },
+      ['Cultural Signal Scout', 'Tracks formats, language, meme structures, context shifts, and ideas moving from fresh to exhausted.'],
+      ['Context Editor', 'Checks whether the premise still works when it leaves the intended feed, room, team, or audience.'],
     ],
   },
   {
-    id: 'capital', index: '03', name: 'Capital Allocation', role: 'Treat creative like a portfolio.', metric: 'Signal: marginal ROAS',
+    index: '03',
+    name: 'Creative & Narrative',
+    signal: 'Distinctiveness',
+    line: 'Make the turn earn its place.',
     agents: [
-      { name: 'Media Arbitrage Agent', detail: 'Compares angle-level CPA and ROAS signals and recommends budget shifts toward stronger performers.' },
-      { name: 'Unit Economics Agent', detail: 'Tracks contribution margin, production cost, platform cost, and pricing pressure.' },
+      ['Comedic Director', 'Builds hooks through specificity, misdirection, escalation, reversal, contrast, and controlled absurdity.'],
+      ['Narrative Editor', 'Protects clarity, voice, setup/payoff logic, and the underlying point when the concept gets sharper.'],
     ],
   },
   {
-    id: 'risk', index: '04', name: 'Risk & Anti-Fragility', role: 'Funny, not reckless.', metric: 'Signal: downside exposure',
+    index: '04',
+    name: 'Risk & Anti-Fragility',
+    signal: 'Downside exposure',
+    line: 'Funny is not a permission slip.',
     agents: [
-      { name: 'IP & Compliance Counsel', detail: 'Flags trademark, copyright, disclosure, endorsement, and platform-policy risks for human review.' },
-      { name: 'Red-Team Operator', detail: 'Stress-tests punchlines for backlash, ambiguity, brand mismatch, and operational failure modes.' },
+      ['Red-Team Operator', 'Searches for cringe, backlash, ambiguity, context collapse, brand mismatch, and predictable hostile readings.'],
+      ['Human Review Gate', 'Escalates legal, HR, regulated, reputational, safety, or factual questions instead of pretending a model should decide them.'],
     ],
   },
-]
+] as const
 
-export const workflow = [
-  ['01', 'Ingest', 'Product URL, offer, audience, economics, brand boundaries.'],
-  ['02', 'Map', 'Audience defenses, humor tolerance, cultural signals, competitive sameness.'],
-  ['03', 'Generate', 'Angle families, hooks, scripts, boards, variants, creator briefs.'],
-  ['04', 'Challenge', 'Policy, IP, reputational and “would this age badly?” red-team pass.'],
-  ['05', 'Produce', 'Human/AI production routing, approvals, asset lineage, version control.'],
-  ['06', 'Deploy', 'Experiment matrix by audience, channel, angle and spend tier.'],
-  ['07', 'Learn', 'Feed observed performance into the next creative allocation cycle.'],
-]
+export const loop = [
+  ['01', 'Frame', 'Define the audience, context, voice, objective, forbidden zones, and what a successful message must actually communicate.'],
+  ['02', 'Generate', 'Build multiple hooks, angles, turns, rewrites, and narrative mechanisms rather than polishing one premature answer.'],
+  ['03', 'Disagree', 'Behavioral, cultural, creative, and risk roles challenge one another with explicit reasons.'],
+  ['04', 'Stress-test', 'Test timing, clarity, humor tolerance, cringe, backlash, context collapse, and escalation requirements.'],
+  ['05', 'Human gate', 'Keep consequential brand, legal, HR, regulatory, and public-risk decisions approval-based.'],
+  ['06', 'Learn', 'Write accepted and rejected patterns back into a reusable creative and communication memory.'],
+] as const
 
-export const roadmap = [
-  ['NOW → 5Y', 'Fastvertising OS', 'High-velocity short-form creative, absurdist UGC systems, measurable angle libraries.'],
-  ['5 → 10Y', 'Adaptive Humor', 'Context-aware creative assembly with guardrails, cohort-level personalization, dynamic sequencing.'],
-  ['10 → 15Y+', 'Conversational Brands', 'Interactive comedic brand agents across commerce, live environments, and spatial interfaces.'],
-]
+export const creatorSegments = [
+  ['Independent creators', 'High-volume ideation without sacrificing a recognizable voice.'],
+  ['Meme & culture pages', 'Fast premise testing, format timing, and sharper pattern selection.'],
+  ['Content studios', 'Structured ideation across multiple creators, shows, clients, or recurring formats.'],
+  ['Entertainment brands', 'A repeatable R&D layer for social-native story mechanics and audience response.'],
+] as const
 
-export const investorSlides = [
-  ['01', 'The Contrarian Thesis', 'Advertising got optimized until it became ignorable. SnarkLogic makes distinctiveness measurable.'],
-  ['02', 'The Pain', 'Creative fatigue, slow production cycles, expensive testing, fragmented rights and compliance workflows.'],
-  ['03', 'The Product', 'One operating system spanning insight, comedic ideation, production, risk review and media feedback.'],
-  ['04', 'The Wedge', 'Start with rapid comedic performance creative where iteration speed is directly visible in economics.'],
-  ['05', 'Why Now', 'Generative production collapsed asset cost; the bottleneck moved to taste, governance, and learning velocity.'],
-  ['06', 'The Multi-Agent Moat', 'Specialist agents create structured disagreement, traceable decisions, and reusable institutional memory.'],
-  ['07', 'Business Model', 'SaaS + marketplace take rate + enterprise studio + performance-aligned services.'],
-  ['08', 'Economics', 'Software gross-margin core with selective service layers that create proprietary performance data.'],
-  ['09', 'Expansion', 'From ad concepts to talent infrastructure, media allocation, brand agents, and creative intelligence APIs.'],
-  ['10', 'The Ask', 'Capital to deepen product, data flywheel, creator network, enterprise distribution, and governance systems.'],
-]
+export const enterpriseSegments = [
+  ['Corporate communications', 'Humanize announcements, executive notes, internal messages, and change communications.'],
+  ['PR & reputation teams', 'Red-team public statements before the internet does it for free.'],
+  ['Brand & social teams', 'Explore wit and self-awareness inside explicit brand and escalation boundaries.'],
+  ['People / internal comms', 'Reduce robotic language while preserving seriousness, clarity, and review requirements.'],
+] as const
+
+export const businessModel = [
+  ['PUBLIC / CREATOR', 'Self-serve software', 'Creator, studio, and network tiers; high-velocity content R&D and reusable pattern libraries.', 'Planned'],
+  ['PRIVATE / ENTERPRISE', 'Custom deployment', 'Private pilots, communication stress-testing, guardrail design, evaluation workflows, and retained support.', 'Private engagement'],
+] as const
+
+export const investorStory = [
+  ['01', 'Category', 'Comedy and communication R&D infrastructure—not another ad-buying dashboard.'],
+  ['02', 'Public wedge', 'Creators and content studios need more ideas, faster testing, and better retention logic without flattening voice.'],
+  ['03', 'Private wedge', 'Enterprises need more human communication without turning tone experimentation into unmanaged reputation risk.'],
+  ['04', 'Shared engine', 'Both products use the same disagreement architecture: behavioral, cultural, creative, and risk roles.'],
+  ['05', 'Data flywheel', 'Accepted, rejected, and observed patterns can become structured memory around audience tolerance, timing, voice, and failure modes.'],
+  ['06', 'Business model', 'Self-serve MediaTech on one side; high-ticket private enterprise deployments on the other.'],
+  ['07', 'Defensibility', 'Workflow memory, proprietary evaluation data, organization-specific guardrails, and creator-specific pattern libraries.'],
+  ['08', 'Expansion', 'From text and short-form ideation into episodic formats, live social operations, internal comms, and communication QA APIs.'],
+] as const
