@@ -1,88 +1,87 @@
-# SnarkLogic — Next.js / Vercel Production Prototype
+# Snark Logic — MediaTech + Enterprise Communications
 
-A complete multi-file Next.js application for **SnarkLogic**, designed to demonstrate the architecture discussed in the planning conversation: brand system + reusable UI + interactive client behavior + server routes + multi-page information architecture + Vercel deployment readiness.
+Snark Logic is a two-engine comedy and communication R&D company built on one structured-disagreement core.
+
+## 1. Public MediaTech Engine
+
+An algorithmic writers’ room and content R&D system for digital creators, meme/culture pages, content studios, and entertainment brands.
+
+Core jobs:
+- high-velocity hook families
+- timing and payoff analysis
+- humor-tolerance mapping
+- narrative subversion
+- retention-oriented creative notes
+- creator-specific pattern memory
+
+## 2. Private Enterprise Communications OS
+
+A private tone, satire, and communication-risk firewall for organizations that want more human language without unmanaged brand or reputation risk.
+
+Core jobs:
+- tone translation
+- cringe detection
+- backlash and context-collapse stress tests
+- satire / wit tolerance controls
+- claim and escalation gates
+- approval memory
+
+## Shared engine
+
+Both product surfaces use four deliberately separate perspectives:
+1. Behavioral Intelligence
+2. Cultural Signal
+3. Creative & Narrative
+4. Risk & Anti-Fragility
+
+The system is designed to generate alternatives, force disagreement, expose tradeoffs, escalate consequential decisions to humans, and remember accepted/rejected patterns.
+
+## Routes
+
+- `/` — dual-engine company home
+- `/creators` — public Creator R&D product
+- `/enterprise` — private Enterprise Communications OS
+- `/engine` — shared disagreement architecture
+- `/lab` — interactive two-mode product prototype
+- `/agents` — agent-role architecture
+- `/about` — company and brand system
+- `/contact` — creator / enterprise / partner inquiries
+- `/investors` — company thesis
+
+Legacy URLs redirect:
+- `/platform` → `/engine`
+- `/studio` → `/creators`
+- `/marketplace` → `/creators`
+- `/council` → `/enterprise`
 
 ## Stack
 
-- Next.js 16.2.11 (App Router)
+- Next.js 16.2.11 App Router
 - React 19.2
 - TypeScript
-- Pure CSS design system (no UI framework dependency)
-- Next.js Route Handlers for server-side demo logic
+- custom responsive CSS
+- deterministic interactive prototype logic
 - Vercel-ready configuration
 
-## Pages
+## Contact form
 
-- `/` — brand/product home
-- `/platform` — SaaS product architecture
-- `/lab` — interactive campaign workspace concept
-- `/agents` — four-pod multi-agent operating model
-- `/studio` — enterprise performance studio
-- `/marketplace` — creator & talent marketplace
-- `/enterprise` — governance and unit economics
-- `/council` — multidisciplinary executive advisory system
-- `/investors` — 10-slide investor narrative
-- `/about` — brand voice and visual system
-- `/contact` — working server-posted brief form
+Contact submissions use FormSubmit AJAX:
 
-## Server routes
+`https://formsubmit.co/ajax/realjjemail@gmail.com`
 
-- `POST /api/brief` — deterministic orchestration demo. Works without API keys; replace with your model/orchestration provider later.
-- `POST /api/contact` — validates contact briefs. Production integration point for CRM/email/database.
+No Resend API key or email environment variable is required.
 
-## Run locally
+## Deployment
 
-```bash
-npm install
-npm run dev
-```
+Vercel should use:
+- Framework: Next.js
+- Root Directory: `./`
+- Build Command: Default
+- Output Directory: Default
+- Install Command: Default
 
-Open `http://localhost:3000`.
+## Prototype disclosure
 
-## Production build
+This repository is a working brand/product prototype. The lab uses deterministic logic so it can demonstrate interaction design without hidden AI calls or fake customer datasets. Production model orchestration, authentication, data storage, customer-specific evaluation memory, and enterprise deployment controls remain future integration work.
 
-```bash
-npm run build
-npm start
-```
-
-## Deploy with GitHub + Vercel
-
-1. Create a new GitHub repository, e.g. `snarklogic`.
-2. Upload **the entire contents of this project**, not only one HTML file.
-3. Commit and push to the repository.
-4. In Vercel choose **Add New → Project**.
-5. Import the GitHub repository.
-6. Vercel should detect **Next.js** automatically.
-7. Keep the root directory as `./` and deploy.
-8. Point `snarklogic.com` to the Vercel project when you are ready to use the custom domain.
-
-Every later GitHub push can create a fresh Vercel deployment/preview depending on your Git integration settings.
-
-## Recommended production integrations
-
-The repository intentionally ships without secrets or paid external dependencies. Add them only when needed:
-
-- email delivery / CRM in `app/api/contact/route.ts`
-- model provider / orchestration service in `app/api/brief/route.ts`
-- persistent database for briefs, campaigns and experiments
-- authentication for customer workspaces
-- object storage for creative assets
-- analytics/event pipeline for creative performance data
-- queue/background job system for long-running generation workflows
-
-Never commit live API keys. Configure secrets as Vercel Environment Variables.
-
-## Brand direction
-
-**Tagline:** Make them laugh. Make the numbers move.
-
-**Position:** comedy with a quant desk behind it.
-
-**Visual logic:** editorial black + warm paper; signal lime for system intelligence/positive movement; coral for creative heat/risk; violet for synthetic depth. The design intentionally avoids generic "AI blue", robot heads, and template-SaaS aesthetics.
-
-## Important prototype notes
-
-This is a production-buildable brand/application prototype, not a finished enterprise back end. The UI and route architecture are real; external model, CRM, database, rights-management, ad-network, identity, and billing integrations are represented as clean integration points rather than fake live connections.
-
-Campaign/ROI examples are illustrative and not guarantees.
+Enterprise risk outputs are decision-support concepts and do not replace qualified legal, HR, compliance, communications, regulatory, or crisis-management professionals.
