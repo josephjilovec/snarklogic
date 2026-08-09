@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { PageHero } from '@/components/PageHero'
-import { investorSlides } from '@/lib/data'
-export const metadata: Metadata = { title:'Investor Narrative' }
-export default function Investors(){return <><PageHero kicker="INVESTOR NARRATIVE" title="The creative layer is becoming software. Taste and governance become infrastructure." copy="A 10-slide institutional pitch architecture for the SnarkLogic thesis. This page is strategic narrative, not an offering memorandum or investment solicitation."/><section className="section-pad"><div className="pitch-stack">{investorSlides.map(([n,t,c])=><article key={n}><span>{n}</span><div><h2>{t}</h2><p>{c}</p></div></article>)}</div></section><section className="final-cta"><span>THE MOAT</span><h2>Structured creative data.<br/>Rights-aware workflows.<br/>Performance memory.</h2></section></>}
+import { investorStory } from '@/lib/data'
+export const metadata: Metadata = { title: 'Company Thesis' }
+export default function InvestorsPage(){return <><section className="page-hero-v2 about-hero"><span>COMPANY THESIS</span><h1>One creative-intelligence core.<br/>Two very different markets.</h1><p>The public MediaTech product and private enterprise OS create different revenue motions while reinforcing the same evaluation architecture.</p></section><section className="section"><div className="pitch-stack-v2">{investorStory.map(([n,t,d])=><article key={n}><span>{n}</span><div><h2>{t}</h2><p>{d}</p></div></article>)}</div><p className="disclosure">Business-model and expansion language describes the intended company architecture, not guaranteed traction, contracts, or financial performance.</p></section></>}
