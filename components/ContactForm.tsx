@@ -5,45 +5,29 @@ import { FormEvent, useState } from 'react'
 export function ContactForm() {
   const [status, setStatus] = useState('')
   const [sending, setSending] = useState(false)
-  const [success, setSuccess] = useState(false)
 
-  async function submit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
     if (sending) return
-
-    const form = e.currentTarget
+    const form = event.currentTarget
     setSending(true)
-    setSuccess(false)
     setStatus('Sending…')
-
     try {
-      const fd = new FormData(form)
-      const body = Object.fromEntries(fd.entries())
-
-      const res = await fetch('/api/contact', {
+      const data = new FormData(form)
+      data.set('_subject', `New Snark Logic inquiry — ${String(data.get('lane') || 'General')}`)
+      data.set('_template', 'table')
+      data.set('_captcha', 'false')
+      const response = await fetch('https://formsubmit.co/ajax/realjjemail@gmail.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
+        headers: { Accept: 'application/json' },
+        body: data,
       })
-
-      const data = await res.json().catch(() => ({
-        message: 'Unexpected server response.',
-      }))
-
-      if (!res.ok) {
-        throw new Error(data.message || 'Could not send your brief.')
-      }
-
-      setStatus(data.message || 'Brief sent.')
-      setSuccess(true)
+      const payload = await response.json().catch(() => ({}))
+      if (!response.ok || payload.success === false) throw new Error('Could not send the inquiry.')
       form.reset()
-    } catch (error) {
-      setStatus(
-        error instanceof Error
-          ? error.message
-          : 'Could not send your brief. Please try again.'
-      )
+      setStatus('Sent. Your inquiry is on its way.')
+    } catch {
+      setStatus('Could not send right now. Please try again.')
     } finally {
       setSending(false)
     }
@@ -52,56 +36,21 @@ export function ContactForm() {
   return (
     <form className="contact-form" onSubmit={submit}>
       <div className="two">
-        <label>
-          Name
-          <input name="name" required autoComplete="name" />
-        </label>
-
-        <label>
-          Work email
-          <input name="email" type="email" required autoComplete="email" />
-        </label>
+        <label>Name<input name="name" autoComplete="name" required /></label>
+        <label>Email<input name="email" type="email" autoComplete="email" required /></label>
       </div>
-
-      <label>
-        What are we selling?
-        <input
-          name="company"
-          placeholder="Company / product"
-          required
-          autoComplete="organization"
-        />
-      </label>
-
-      <label>
-        Where does the current advertising feel painfully normal?
-        <textarea name="problem" rows={5} required />
-      </label>
-
-      <label>
-        Approx. monthly paid media
-        <select name="spend" defaultValue="">
-          <option value="" disabled>
-            Select a range
-          </option>
-          <option>&lt; $25k</option>
-          <option>$25k–$100k</option>
-          <option>$100k–$500k</option>
-          <option>$500k+</option>
+      <label>Which side are you interested in?
+        <select name="lane" defaultValue="Creator / MediaTech">
+          <option>Creator / MediaTech</option>
+          <option>Enterprise communications</option>
+          <option>Studio / entertainment brand</option>
+          <option>Partnership / investment</option>
         </select>
       </label>
-
-      <button className="button solid" type="submit" disabled={sending}>
-        {sending ? 'SENDING…' : 'SUBMIT BRIEF →'}
-      </button>
-
-      <p
-        className="form-status"
-        aria-live="polite"
-        data-success={success ? 'true' : 'false'}
-      >
-        {status}
-      </p>
+      <label>Company, channel, studio, or project<input name="organization" autoComplete="organization" placeholder="Optional" /></label>
+      <label>What are you trying to make sharper?<textarea name="message" rows={7} required placeholder="Content workflow, hook generation, internal comms, public statement stress-test, private pilot…" /></label>
+      <button className="button creator-button" type="submit" disabled={sending}>{sending ? 'Sending…' : 'Send inquiry →'}</button>
+      <p className="form-status" aria-live="polite">{status}</p>
     </form>
   )
 }
