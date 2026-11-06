@@ -17,7 +17,7 @@ export function ContactForm() {
       data.set('_subject', `New Snark Logic inquiry — ${String(data.get('lane') || 'General')}`)
       data.set('_template', 'table')
       data.set('_captcha', 'false')
-      const response = await fetch('https://formsubmit.co/ajax/realjjemail@gmail.com', {
+      const response = await fetch('https://summithillholdings.com/api/inquiry?venture=snarklogic', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: data,
@@ -51,6 +51,7 @@ export function ContactForm() {
       <label>What are you trying to make sharper?<textarea name="message" rows={7} required placeholder="Content workflow, hook generation, internal comms, public statement stress-test, private pilot…" /></label>
       <button className="button creator-button" type="submit" disabled={sending}>{sending ? 'Sending…' : 'Send inquiry →'}</button>
       <p className="form-status" aria-live="polite">{status}</p>
+    <p className="contact-routing-note">Business inquiries are handled by Summit Hill Holdings. Please omit confidential records.</p>
     </form>
   )
 }

@@ -14,6 +14,6 @@ export function Footer() {
       </div>
       <p className="footer-fine">© {new Date().getFullYear()} Snark Logic. Product and company architecture presented as a working prototype. Enterprise risk outputs are decision-support concepts, not legal, HR, compliance, or crisis-management advice.</p>
     
-</footer>
+<p style={{ gridColumn: "1 / -1", margin: 0, padding: "16px 24px", fontSize: "12px", lineHeight: 1.6 }}><a href="https://summithillholdings.com/" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}>Summit Hill Holdings</a></p></footer>
   )
 }

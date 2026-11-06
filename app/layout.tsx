@@ -4,14 +4,14 @@ import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://snarklogic.josephjilovec.com'),
+  metadataBase: new URL('https://snarklogic.summithillholdings.com'),
   title: { default: 'Snark Logic — Comedy systems for feeds and boardrooms.', template: '%s — Snark Logic' },
   description: 'A two-engine MediaTech company: a public algorithmic writers’ room for creators and a private enterprise communications firewall for tone, satire, cringe, backlash, and brand-risk testing.',
   openGraph: {
     title: 'Snark Logic',
     description: 'Comedy systems for feeds and boardrooms.',
     type: 'website',
-    url: 'https://snarklogic.josephjilovec.com',
+    url: 'https://snarklogic.summithillholdings.com',
   },
   robots: { index: true, follow: true },
 }

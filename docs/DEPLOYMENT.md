@@ -21,7 +21,7 @@ The contact form posts directly to FormSubmit AJAX and does not require Resend, 
 
 Canonical site metadata targets:
 
-`https://snarklogic.josephjilovec.com`
+`https://snarklogic.summithillholdings.com`
 
 ## Legacy routes
 

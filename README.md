@@ -65,11 +65,8 @@ Legacy URLs redirect:
 
 ## Contact form
 
-Contact submissions use FormSubmit AJAX:
 
-`https://formsubmit.co/ajax/realjjemail@gmail.com`
 
-No Resend API key or email environment variable is required.
 
 ## Deployment
 
@@ -85,3 +82,6 @@ Vercel should use:
 This repository is a working brand/product prototype. The lab uses deterministic logic so it can demonstrate interaction design without hidden AI calls or fake customer datasets. Production model orchestration, authentication, data storage, customer-specific evaluation memory, and enterprise deployment controls remain future integration work.
 
 Enterprise risk outputs are decision-support concepts and do not replace qualified legal, HR, compliance, communications, regulatory, or crisis-management professionals.
+
+
+General inquiries use the Summit Hill Holdings inquiry route. Recipient and sender settings are held in server-side deployment configuration. Missing delivery configuration returns a clear failure; the page must not claim a message was sent.
